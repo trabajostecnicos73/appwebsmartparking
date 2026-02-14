@@ -1,0 +1,17 @@
+:root {
+  /* El azul de tu logo es aproximadamente este: */
+  --primario: #0070f3; 
+  --fondo: #f0f4f8;
+  --texto: #0a192f;
+  --blanco: #ffffff;
+  --sombra: rgba(0, 112, 243, 0.2);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--fondo);
+  color: var(--texto);
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}

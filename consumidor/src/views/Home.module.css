@@ -1,0 +1,595 @@
+.contenedor {
+  min-height: 100vh;
+  background-color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.perfil {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.perfil:hover {
+  background: #f1f5f9;
+  border-radius: 8px;
+  padding: 4px;
+}
+
+/* CLASE AGREGADA: Botón de logout en navbar */
+.btnLogOut {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  background: #fee2e2;
+  color: #dc2626;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btnLogOut:hover {
+  background: #fecaca;
+  transform: scale(1.05);
+}
+
+.brandTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.dropdownWrapper {
+  position: relative;
+  width: 90%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.selectorPrincipal {
+  width: 100%;
+  padding: 1.25rem;
+  background: white;
+  border: 2px solid #3b82f6;
+  border-radius: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1e293b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.selectorPrincipal.activo {
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+.listaOpciones {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-top: none;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  overflow: hidden;
+  z-index: 50;
+}
+
+.opcionItem {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  gap: 1.25rem;
+  border: none;
+  background: white;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.opcionItem:hover {
+  background: #eff6ff;
+}
+
+.iconContainer {
+  color: #334155;
+}
+
+.optNombre {
+  display: block;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.optDesc {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.chevron {
+  transition: transform 0.3s ease;
+}
+
+.rotar {
+  transform: rotate(180deg);
+}
+
+.btnSiguiente {
+  display: block;
+  width: 90%;
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.formularioPlaca {
+  width: 90%;
+  max-width: 400px;
+  margin: 0 auto;
+  animation: fadeIn 0.3s ease;
+}
+
+.btnVolver {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  color: #64748b;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+}
+
+.cajaInput label {
+  display: block;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 0 1rem;
+}
+
+.iconInput {
+  color: #94a3b8;
+}
+
+.inputPlaca {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  outline: none;
+}
+
+.btnReservar {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1.25rem;
+  background: #10b981; /* Verde para confirmar */
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.3);
+}
+
+.btnReservar:disabled {
+  background: #cbd5e1;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.inputColor {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  outline: none;
+  color: #1e293b;
+}
+
+/* Mejora para que los inputs se vean más limpios */
+.inputWrapper:focus-within {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.separador {
+  margin: 3rem 0 2rem;
+  border: 0;
+  border-top: 1px solid #e2e8f0;
+  width: 100%;
+}
+
+.historialContainer {
+  width: 90%;
+  max-width: 450px;
+  margin: 0 auto 3rem;
+}
+
+.tituloHistorial {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
+}
+
+.tarjetaReserva {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  border: 1px solid #f1f5f9;
+}
+
+.reservaIcon {
+  background: #eff6ff;
+  color: #3b82f6;
+  padding: 10px;
+  border-radius: 10px;
+  margin-right: 1rem;
+}
+
+.reservaInfo {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.reservaPlaca {
+  font-weight: 800;
+  color: #0f172a;
+  font-size: 1.1rem;
+}
+
+.reservaColor {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.reservaEstado {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 20px;
+  background: #f1f5f9;
+  color: #475569;
+  text-transform: uppercase;
+}
+
+.reservaEstado.pendiente { background: #fef3c7; color: #92400e; }
+
+.sinReservas {
+  text-align: center;
+  color: #94a3b8;
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+.textoVigencia {
+  font-size: 0.75rem;
+  color: #ef4444; /* Rojo para indicar advertencia de tiempo */
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.vigenciaBadge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 5px;
+  color: #ef4444; /* Color rojo para urgencia */
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.vigenciaBadge span {
+  font-style: italic;
+}
+
+.formularioPerfil h2 {
+  color: #0f172a;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Contenedor principal del Perfil */
+.formularioPerfil {
+  width: 95%;
+  max-width: 450px; /* Evita que se ocupe toda la pantalla */
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  animation: slideUp 0.3s ease-out;
+}
+
+.tituloSeccion {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Estilo específico para los inputs del perfil */
+.inputPerfil {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #334155;
+  outline: none;
+  background: transparent;
+}
+
+/* Animación de entrada */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Ajuste del botón volver */
+.btnVolverPerfil {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f1f5f9;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: #64748b;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  transition: all 0.2s;
+}
+
+.btnVolverPerfil:hover {
+  background: #e2e8f0;
+  color: #1e293b;
+}
+
+/* Colores para los estados de la reserva */
+.reservaEstado {
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Estado Pendiente: Amarillo/Naranja */
+.pendiente {
+  background-color: #fef3c7;
+  color: #d97706;
+  border: 1px solid #fde68a;
+}
+
+/* Estado Completada o Ingresado: Verde */
+.completada, .ingresado {
+  background-color: #dcfce7;
+  color: #16a34a;
+  border: 1px solid #bbf7d0;
+}
+
+/* Estado Expirada o Cancelada: Gris/Rojo */
+.expirada, .cancelada {
+  background-color: #fee2e2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+.btnCerrarSesionPerfil {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 12px;
+  background-color: transparent;
+  color: #ef4444; /* Rojo */
+  border: 2px solid #fee2e2;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btnCerrarSesionPerfil:hover {
+  background-color: #fee2e2;
+  border-color: #ef4444;
+}
+
+.btnFlotanteMapa {
+  position: fixed;
+  bottom: 30px;
+  right: 25px;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background-color: #3b82f6; /* Azul brillante para que resalte */
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.btnFlotanteMapa:hover {
+  transform: scale(1.1);
+  background-color: #2563eb;
+}
+
+.btnFlotanteMapa:active {
+  transform: scale(0.9);
+}
+
+/* Opcional: un pequeño texto que aparece arriba del botón */
+.tooltipMapa {
+  position: absolute;
+  top: -40px;
+  background: #1e293b;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.btnFlotanteMapa:hover .tooltipMapa {
+  opacity: 1;
+}
+
+/* BLOQUE 3:  */
+
+.montoPagado {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  color: #16a34a;
+  font-weight: 600;
+  margin-top: 0.3rem;
+}
+
+.reservaEstado.ensitio {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.reservaEstado.finalizada {
+  background-color: #16a34a;
+  color: white;
+}
+
+.reservaEstado.cancelada {
+  background-color: #64748b;
+  color: white;
+}
+
+.btnVerHistorial {
+  width: 100%;
+  padding: 0.75rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.btnVerHistorial:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.btnCargarMas {
+  width: 100%;
+  padding: 0.75rem;
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.btnCargarMas:hover {
+  background: #e5e7eb;
+  border-color: #9ca3af;
+}
+
+/* Estilos para acciones de reserva */
+.accionesReserva {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.btnEliminar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  background: #fee2e2;
+  color: #dc2626;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btnEliminar:hover {
+  background: #fecaca;
+  transform: scale(1.1);
+}
