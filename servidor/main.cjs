@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mysql = require('mysql2');
 const cors = require('cors');
@@ -5,15 +6,15 @@ const cors = require('cors');
 const app = express();
 
 // --- CONFIGURACIÓN DE MIDDLEWARES ---
-app.use(cors()); // Permite conexiones desde tu app de React
-app.use(express.json()); // ¡IMPORTANTE! Permite leer el cuerpo (body) de las peticiones POST
+app.use(cors());
+app.use(express.json());
 
 // --- CONFIGURACIÓN DE LA BASE DE DATOS ---
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',      // Tu usuario de MySQL
-    password: 'PasswordMySQL',      // Tu contraseña de MySQL
-    database: 'parqueadero_web' 
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME
 });
 
 db.query("SET time_zone = '-05:00';", (err) => {
@@ -207,7 +208,7 @@ app.put('/api/auth/recuperar-password', (req, res) => {
 setInterval(limpiarReservasExpiradas, 5 * 60 * 1000);
 
 // --- ARRANCAR EL SERVIDOR ---
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Servidor de SmartParkin corriendo en http://localhost:${PORT}`);
 });
