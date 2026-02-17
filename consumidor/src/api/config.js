@@ -10,7 +10,7 @@ import axios from 'axios';
 // - Mac/Linux: abre Terminal y escribe 'ifconfig' o 'ip addr'
 
 const api = axios.create({
-  baseURL: 'http://localhost:3000/api', // <-- CAMBIA localhost por tu IP si usas celular
+  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:3000',
 });
 
 export default api;
