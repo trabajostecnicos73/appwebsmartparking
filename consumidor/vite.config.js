@@ -3,9 +3,8 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  server: {
-    port: 5180,
-    strictPort: true,
-    host: true, // <--- ESTO ES VITAL para que el celular se conecte
+  build: {
+    outDir: 'dist',
+    emptyOutDir: true
   }
 })
